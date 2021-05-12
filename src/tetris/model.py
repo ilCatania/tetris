@@ -3,6 +3,7 @@ from enum import Enum
 
 
 def _row(*args):
+    """Shorthand method to create grid rows."""
     return array("B", args)
 
 

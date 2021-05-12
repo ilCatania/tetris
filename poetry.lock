@@ -367,6 +367,14 @@ pytest = ">=4.6"
 testing = ["fields", "hunter", "process-tests (==2.0.2)", "six", "pytest-xdist", "virtualenv"]
 
 [[package]]
+name = "pytest-shell"
+version = "0.2.3"
+description = "A pytest plugin for testing shell scripts and line-based processes"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
 name = "pyyaml"
 version = "5.4.1"
 description = "YAML parser and emitter for Python"
@@ -447,7 +455,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "aa158016a04860f4ce1f60ee2a5e7d9c8afdcff12ad47e52522a2fde1b0c4a10"
+content-hash = "629dfdc808fa63aa7a9caf9570f71d14f302c1cafbda1903e42822c52e03be9c"
 
 [metadata.files]
 aiohttp = [
@@ -725,6 +733,10 @@ pytest = [
 pytest-cov = [
     {file = "pytest-cov-2.11.1.tar.gz", hash = "sha256:359952d9d39b9f822d9d29324483e7ba04a3a17dd7d05aa6beb7ea01e359e5f7"},
     {file = "pytest_cov-2.11.1-py2.py3-none-any.whl", hash = "sha256:bdb9fdb0b85a7cc825269a4c56b48ccaa5c7e365054b6038772c32ddcdc969da"},
+]
+pytest-shell = [
+    {file = "pytest-shell-0.2.3.tar.gz", hash = "sha256:535178a527450371defbc00e542511300b6a8e3199abe537b31aae6eb3c94ded"},
+    {file = "pytest_shell-0.2.3-py2.py3-none-any.whl", hash = "sha256:aa396d5e8f4b3faa20fc28b66abe088139bef1c02a5d0674a5a2f2aacf778b1a"},
 ]
 pyyaml = [
     {file = "PyYAML-5.4.1-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:3b2b1824fe7112845700f815ff6a489360226a5609b96ec2190a45e62a9fc922"},

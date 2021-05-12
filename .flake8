@@ -1,0 +1,6 @@
+[flake8]
+ignore =
+    # E741 ambiguous variable name 'I'
+    E741,
+exclude = .git,__pycache__,tests,env,main.py
+max-line-length = 120

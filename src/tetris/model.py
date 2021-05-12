@@ -55,8 +55,34 @@ class Grid:
             for col_offset, p in enumerate(piece.layout[r]):
                 grid_row[col + col_offset] += p
 
+    def _get_landing_row(self, piece: Piece, col: int):
+        """Determines the landing row of a piece being added.
+
+        When a new piece is added to the grid, determine on which
+        row it will stop falling.
+        """
+        # find a grid row that fits the bottom row of the piece
+        for gr_idx in range(len(self.grid)):
+            for pr_idx, piece_row in enumerate(piece.layout):
+                if pr_idx + gr_idx >= len(self.grid):
+                    # no more row above on the grid, so the piece
+                    # will drop here
+                    return gr_idx
+                grid_row_slice = self.grid[gr_idx + pr_idx][col: col + piece.width]
+                if any(p and g for p, g in zip(piece_row, grid_row_slice)):
+                    # we found a collision
+                    break
+                # if we're on the last row of the piece and there
+                # were no collisions, the piece will drop here
+                if pr_idx + 1 == piece.height:
+                    return gr_idx
+
+        # if we made it here, we'll just need to add at the top of the grid
+        return len(self.grid)
+
     def add(self, piece: Piece, col: int):
-        self._update_grid(piece, 0, col)
+        landing_row = self._get_landing_row(piece, col)
+        self._update_grid(piece, landing_row, col)
 
     @property
     def height(self) -> int:

@@ -56,5 +56,26 @@ def test_add_interlocking():
     grid = Grid()
     grid.add(Piece.T, 2)
     grid.add(Piece.S, 0)
-    grid.add(Piece.Z, 5)
+    grid.add(Piece.Z, 4)
     assert grid.height == 2
+
+
+def test_add_and_complete_a_line():
+    """Tests adding pieces that form a full line at the bottom."""
+    grid = Grid()
+    grid.add(Piece.T, 2)
+    grid.add(Piece.T, 5)
+    grid.add(Piece.S, 0)
+    grid.add(Piece.Z, 7)
+    assert grid.height == 1
+
+
+def test_add_two_full_lines():
+    """Tests adding pieces that form exactly two full lines."""
+    grid = Grid()
+    grid.add(Piece.I, 0)
+    grid.add(Piece.I, 0)
+    grid.add(Piece.Q, 4)
+    grid.add(Piece.I, 6)
+    grid.add(Piece.I, 6)
+    assert grid.height == 0

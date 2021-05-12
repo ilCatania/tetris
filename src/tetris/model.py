@@ -55,6 +55,10 @@ class Grid:
             for col_offset, p in enumerate(piece.layout[r]):
                 grid_row[col + col_offset] += p
 
+    def _delete_full_lines(self):
+        """Deletes full lines from the grid."""
+        self.grid = [row for row in self.grid if not all(row)]
+
     def _get_landing_row(self, piece: Piece, col: int):
         """Determines the landing row of a piece being added.
 
@@ -83,6 +87,7 @@ class Grid:
     def add(self, piece: Piece, col: int):
         landing_row = self._get_landing_row(piece, col)
         self._update_grid(piece, landing_row, col)
+        self._delete_full_lines()
 
     @property
     def height(self) -> int:

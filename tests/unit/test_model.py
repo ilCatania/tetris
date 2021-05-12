@@ -11,6 +11,7 @@ def test_piece_well_defined(piece):
 
 
 def test_piece_layouts_unique():
+    """Tests that pieces have unique layouts."""
     for p1, p2 in combinations(Piece, 2):
         assert p1.layout != p2.layout
 

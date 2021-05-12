@@ -36,7 +36,7 @@ class Piece(str, Enum):
 class Grid:
     def __init__(self, width: int = 10):
         self.width = width
-        self.grid = []
+        self.grid = []  # rows are ordered bottom to top
 
     def _add_row(self):
         """Adds an empty row to the grid."""

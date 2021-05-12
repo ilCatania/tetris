@@ -42,9 +42,7 @@ class Grid:
         self.grid.append(_row(*(0 for ii in range(self.width))))
 
     def _ensure_height(self, height: int):
-        """Ensures the grid has at least input height.
-
-        Adds rows if necessary."""
+        """Ensures the grid has at least input height, adding rows if necessary."""
         for _ in range(height - len(self.grid)):
             self._add_row()
 

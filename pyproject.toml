@@ -9,7 +9,7 @@ python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2"
-black = "^21.5b1"
+black = {extras = ["d"], version = "^21.5b1"}
 isort = "^5.8.0"
 flake8 = "^3.9.2"
 pre-commit = "^2.12.1"

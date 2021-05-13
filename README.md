@@ -20,7 +20,7 @@ where each letter identifies a Tetris piece with a specific shape:
 * `I` is the straight piece, laid out horizontally
 * `T`, `Z`, `S`, `J`, `L` have the same shape as their letter
 
-and the number represents the leftmost column occupied by this piece.
+and the number represents the leftmost column occupied by this piece when dropped into the grid.
 
 For example, the sequence above will result in a grid of height 3 and the following layout:
 
@@ -42,7 +42,7 @@ will result in an empty grid as two full lines will be eliminated.
 
 # Running
 
-The program requires python 3 (it was tested with version `3.8.5`) by checking out the project, then running:
+The program requires python 3 (it was tested with version `3.8.5`). After checking out the project, run it like this:
 
 ```shell
 $ python src/tetris/cmd.py

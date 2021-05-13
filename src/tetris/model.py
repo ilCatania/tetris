@@ -71,24 +71,22 @@ class Grid:
         When a new piece is added to the grid, determine on which
         row it will stop falling.
         """
-        # find a grid row that fits the bottom row of the piece
-        for gr_idx in range(len(self.grid)):
-            for pr_idx, piece_row in enumerate(piece.layout):
-                if pr_idx + gr_idx >= len(self.grid):
-                    # no more row above on the grid, so the piece
-                    # will drop here
-                    return gr_idx
-                grid_row_slice = self.grid[gr_idx + pr_idx][col: col + piece.width]
-                if any(p and g for p, g in zip(piece_row, grid_row_slice)):
-                    # we found a collision
+        # look at grid rows starting from the top, and stop if the
+        # piece collides with anything on the row
+        for grid_row_idx in reversed(range(len(self.grid))):
+            for piece_row_idx, piece_row in enumerate(piece.layout):
+                if piece_row_idx + grid_row_idx >= len(self.grid):
+                    # no more rows above on the grid, so
+                    # nothing else to check
                     break
-                # if we're on the last row of the piece and there
-                # were no collisions, the piece will drop here
-                if pr_idx + 1 == piece.height:
-                    return gr_idx
+                grid_row_slice = self.grid[grid_row_idx + piece_row_idx][col: col + piece.width]
+                if any(p and g for p, g in zip(piece_row, grid_row_slice)):
+                    # we found a collision, so the piece will stop
+                    # on the row above current
+                    return grid_row_idx + 1
 
-        # if we made it here, we'll just need to add at the top of the grid
-        return len(self.grid)
+        # no collisions, the piece drops to the bottom
+        return 0
 
     def add(self, piece: Piece, col: int):
         """Add a piece to the grid."""

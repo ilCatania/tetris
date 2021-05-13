@@ -6,10 +6,10 @@ from typing import List
 
 try:
     # if module is available, import from submodule
-    from tetris.model import Piece, Grid
+    from tetris.model import Grid, Piece
 except ModuleNotFoundError:
     # otherwise import from file
-    from model import Piece, Grid
+    from model import Grid, Piece
 
 
 def parse_piece_adds(line: str) -> List:

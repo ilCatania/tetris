@@ -1,7 +1,8 @@
 from itertools import combinations
 
 import pytest
-from tetris.model import Piece, Grid
+
+from tetris.model import Grid, Piece
 
 
 @pytest.mark.parametrize("piece", Piece)

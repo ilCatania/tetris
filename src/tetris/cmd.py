@@ -4,7 +4,12 @@ import os.path
 import sys
 from typing import List
 
-from tetris.model import Piece, Grid
+try:
+    # if module is available, import from submodule
+    from tetris.model import Piece, Grid
+except ModuleNotFoundError:
+    # otherwise import from file
+    from model import Piece, Grid
 
 
 def parse_piece_adds(line: str) -> List:

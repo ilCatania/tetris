@@ -53,21 +53,21 @@ def test_add_two_longs_adjacent():
 
 
 def test_add_interlocking():
-    """Tests adding a T and a Z and S on its sides."""
+    """Tests adding a Z and S, then a T inbetween."""
     grid = Grid()
+    grid.add(Piece.Z, 0)
+    grid.add(Piece.S, 4)
     grid.add(Piece.T, 2)
-    grid.add(Piece.S, 0)
-    grid.add(Piece.Z, 4)
     assert grid.height == 2
 
 
 def test_add_and_complete_a_line():
     """Tests adding pieces that form a full line at the bottom."""
     grid = Grid()
-    grid.add(Piece.T, 2)
-    grid.add(Piece.T, 5)
+    grid.add(Piece.I, 2)
     grid.add(Piece.S, 0)
-    grid.add(Piece.Z, 7)
+    grid.add(Piece.Q, 6)
+    grid.add(Piece.Q, 8)
     assert grid.height == 1
 
 

@@ -14,7 +14,7 @@ except ModuleNotFoundError:
 
 def parse_piece_adds(line: str) -> List:
     """Parse pieces and columns from an input line."""
-    return [(Piece[s[0]], int(s[1:])) for s in line.split()]
+    return [(Piece[s[0]], int(s[1:])) for s in line.split(",")]
 
 
 def parse_from_piped_input():

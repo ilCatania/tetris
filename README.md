@@ -11,7 +11,7 @@ The game accepts sequences of Tetris pieces, one sequence per line, and will ret
 have been added to the grid. Pieces and positions can be specified in the following format:
 
 ```
-Q2 T3 S6
+Q2,T3,S6
 ```
 
 where each letter identifies a Tetris piece with a specific shape:
@@ -35,7 +35,7 @@ For example, the sequence above will result in a grid of height 3 and the follow
 while the following sequence:
 
 ```
-I0 I0 Q4 I6 I6
+I0,I0,Q4,I6,I6
 ```
 
 will result in an empty grid as two full lines will be eliminated.
@@ -53,7 +53,7 @@ and it accepts alternatively:
 * a single file name argument:
 
 ```shell
-$ echo "Q1 Q3" > in.txt
+$ echo "Q1,Q3" > in.txt
 $ python src/tetris/cmd.py in.txt
 2
 ```
@@ -61,7 +61,7 @@ $ python src/tetris/cmd.py in.txt
 * sequences of pieces as arguments:
 
 ```shell
-$ python src/tetris/cmd.py "Q0 Q2 Z0 I2 I6" "I3 Z2 S5"
+$ python src/tetris/cmd.py "Q0,Q2,Z0,I2,I6" "I3,Z2,S5"
 4
 3
 ```
@@ -69,7 +69,7 @@ $ python src/tetris/cmd.py "Q0 Q2 Z0 I2 I6" "I3 Z2 S5"
 * piped input
 
 ```shell
-$ echo "Q1 Q3 Z0 Z2 T1" | python src/tetris/cmd.py
+$ echo "Q1,Q3,Z0,Z2,T1" | python src/tetris/cmd.py
 6
 ```
 
